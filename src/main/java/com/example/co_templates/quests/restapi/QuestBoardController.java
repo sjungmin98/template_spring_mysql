@@ -32,7 +32,8 @@ public class QuestBoardController {
     }
 
     @PostMapping("/q/r/board/insert/{title}/{contents}")
-    public ResponseEntity<Integer> insert(@PathVariable("title") String title, @PathVariable("contents") String contents) {
+    public ResponseEntity<Integer> insert(@PathVariable("title") String title,
+            @PathVariable("contents") String contents) {
         int result = boardService.insert(title, contents);
         return ResponseEntity.ok().body(result);
     }
@@ -67,7 +68,6 @@ public class QuestBoardController {
 
         List<HashMap<String, Object>> listResult = boardService.list(pageNumber);
         response.put("list", listResult);
-
         response.put("requestParams", requestParams);
 
         return ResponseEntity.ok().body(response);
