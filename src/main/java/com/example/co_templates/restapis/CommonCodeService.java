@@ -8,6 +8,13 @@ import java.util.HashMap;
 
 @Service
 public class CommonCodeService {
+    public HashMap<String, Object> mixed(Integer pageNumber, Integer pkID) {
+        HashMap<String, Object> resultMap = new HashMap<>();
+        resultMap.put("list", this.list(pageNumber));
+        resultMap.put("view", this.view(pkID));
+        return resultMap;
+    }
+
     public ArrayList<HashMap<String, Object>> list(@PathVariable("pageNumber") Integer pageNumber) {
         ArrayList<HashMap<String, Object>> itemList = new ArrayList<HashMap<String, Object>>();
  

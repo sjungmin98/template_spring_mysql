@@ -51,4 +51,14 @@ public class QuestBoardService {
         boardItems.add(newItem);
         return newPkId;
     }
+
+    public HashMap<String, Object> mixed(Integer pageNumber, Integer pkId, String title, String contents) {
+        HashMap<String, Object> response = new HashMap<>();
+        response.put("delete", delete(pkId));
+        int insertResult = insert(title, contents);
+        response.put("insert", insertResult);
+        response.put("view", view(insertResult));
+        response.put("list", list(pageNumber));
+        return response;
+    }
 }
