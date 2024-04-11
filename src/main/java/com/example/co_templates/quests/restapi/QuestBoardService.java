@@ -41,7 +41,6 @@ public class QuestBoardService {
         return 0;
     }
     
-
     public int insert(String title, String contents) {
         int newPkId = pkIdCounter.incrementAndGet();
         HashMap<String, Object> newItem = new HashMap<>();
